@@ -7,6 +7,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <modules>
         <module>easy-sso-server</module>
+        <module>easy-sso-examples</module>
     </modules>
 
     <properties>
@@ -64,6 +65,12 @@
             <groupId>cn.chenzw.toolkit</groupId>
             <artifactId>toolkit</artifactId>
             <version>1.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.26</version>
         </dependency>
     </dependencies>
 </project>
