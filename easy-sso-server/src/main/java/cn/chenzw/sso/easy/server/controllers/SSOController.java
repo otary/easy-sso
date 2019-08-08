@@ -5,8 +5,12 @@ import cn.chenzw.sso.easy.server.support.AbstractSSOTemplate;
 import cn.chenzw.sso.easy.server.support.SSOTemplateFactory;
 import cn.chenzw.sso.easy.server.utils.SSOUtils;
 import cn.chenzw.toolkit.http.HttpHolder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.context.ContextLoader;
+import org.springframework.web.context.WebApplicationContext;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,7 +21,9 @@ import java.io.IOException;
 @RequestMapping("/itm-sso")
 public class SSOController {
 
-    private static final String CONTENT_TYPE = "text/html;charset=GBK";
+    private static final String CONTENT_TYPE = "text/html;charset=UTF-8";
+
+
 
     @RequestMapping
     public void entrance(HttpServletRequest req, HttpServletResponse resp) throws IOException {

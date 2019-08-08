@@ -52,6 +52,7 @@ public class SSODefinition {
             }
 
             this.redirectUrl = ServletRequestUtils.getStringParameter(request, SSOConstants.REDIRECT_URL_IDENTIFIER);
+
             // 计算出来源系统密钥
             this.sourcePrivateKey = SSOUtils.getSourcePrivateKey(source);
 

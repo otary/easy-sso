@@ -20,6 +20,8 @@ public class SSOConstants {
 
     public static final String KEY_TIMESTAMP_FORMAT = "yyyyMMddHHmmss";
 
+    public static final String APP_BASE_PACKAGE = "cn.chenzw.sso.easy.server";
+
     /**
      * SSO开放地址
      */
@@ -91,7 +93,7 @@ public class SSOConstants {
     }
 
     @Value("${sso.limit-milli-second}")
-    public static void setLimitMilliSecond(int limitMilliSecond) {
+    public void setLimitMilliSecond(int limitMilliSecond) {
         LIMIT_MILLI_SECOND = limitMilliSecond;
     }
 

@@ -6,6 +6,7 @@ import cn.chenzw.sso.easy.server.support.SSOTemplateFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
@@ -14,6 +15,7 @@ import java.util.Map;
 
 @Configuration
 @Import({SSOConstants.class})
+@ComponentScan(basePackages = SSOConstants.APP_BASE_PACKAGE)
 public class SSOConfiguration implements BeanFactoryPostProcessor {
 
     @Override
@@ -23,6 +25,5 @@ public class SSOConfiguration implements BeanFactoryPostProcessor {
         for (Map.Entry<String, AbstractSSOTemplate> ssoTemplateEntry : beans.entrySet()) {
             SSOTemplateFactory.register(ssoTemplateEntry.getKey(), ssoTemplateEntry.getValue());
         }
-
     }
 }

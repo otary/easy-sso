@@ -23,6 +23,17 @@ public final class SSOUtils {
     }
 
     /**
+     * 生成系统密钥
+     *
+     * @param source
+     * @param privateKey
+     * @return
+     */
+    public static String getSourcePrivateKey(String source, String privateKey) {
+        return DigestUtils.md5DigestAsHex((source + privateKey).getBytes());
+    }
+
+    /**
      * 生成错误消息块
      *
      * @param title

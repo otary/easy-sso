@@ -11,8 +11,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.ServletRequestUtils;
-import org.springframework.web.context.ContextLoader;
 import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.servlet.support.RequestContextUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -90,9 +90,10 @@ public final class SSOTemplateFactory {
     }
 
     private static AbstractSSOTemplate getTemplateBySource(String source) {
-        String templateClassName = ssoTemplates.get(source);
-        WebApplicationContext context = ContextLoader.getCurrentWebApplicationContext();
-        Object bean = context.getBean(templateClassName);
+        String beanName = ssoTemplates.get(source);
+
+        WebApplicationContext context = RequestContextUtils.findWebApplicationContext(HttpHolder.getRequest());
+        Object bean = context.getBean(beanName);
         if (bean instanceof AbstractSSOTemplate) {
             logger.info("[{}] use sso template: [{}]!", source, bean);
             return (AbstractSSOTemplate) bean;

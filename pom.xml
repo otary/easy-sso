@@ -8,6 +8,8 @@
     <modules>
         <module>easy-sso-server</module>
         <module>easy-sso-examples</module>
+        <module>easy-sso-client</module>
+        <module>easy-sso-keygen</module>
     </modules>
 
     <properties>
