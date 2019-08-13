@@ -1,4 +1,4 @@
-package cn.chenzw.sso.easy.server.exception;
+package cn.chenzw.sso.easy.core.exception;
 
 /**
  * SSO异常

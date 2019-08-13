@@ -9,14 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>easy-sso-client</artifactId>
+    <artifactId>easy-sso-core</artifactId>
 
-    <dependencies>
-        <dependency>
-            <groupId>cn.chenzw.sso</groupId>
-            <artifactId>easy-sso-core</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
 
 </project>

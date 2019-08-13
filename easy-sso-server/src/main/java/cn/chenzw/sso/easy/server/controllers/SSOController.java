@@ -1,16 +1,14 @@
 package cn.chenzw.sso.easy.server.controllers;
 
-import cn.chenzw.sso.easy.server.exception.SSOException;
+import cn.chenzw.sso.easy.core.exception.SSOException;
+import cn.chenzw.sso.easy.core.utils.SSOUtils;
 import cn.chenzw.sso.easy.server.support.AbstractSSOTemplate;
 import cn.chenzw.sso.easy.server.support.SSOTemplateFactory;
-import cn.chenzw.sso.easy.server.utils.SSOUtils;
 import cn.chenzw.toolkit.http.HttpHolder;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.context.ContextLoader;
-import org.springframework.web.context.WebApplicationContext;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,8 +19,9 @@ import java.io.IOException;
 @RequestMapping("/itm-sso")
 public class SSOController {
 
-    private static final String CONTENT_TYPE = "text/html;charset=UTF-8";
+    private static final Logger logger = LoggerFactory.getLogger(SSOController.class);
 
+    private static final String CONTENT_TYPE = "text/html;charset=UTF-8";
 
 
     @RequestMapping
@@ -34,8 +33,10 @@ public class SSOController {
             AbstractSSOTemplate template = SSOTemplateFactory.autoGetTemplate();
             template.dispach();
         } catch (SSOException e) {
+            logger.error("单点异常！", e);
             resp.getWriter().print(SSOUtils.buildHtmlMsg("单点异常", e.getMessage()));
         } catch (Exception e) {
+            logger.error("单点异常ex！", e);
             resp.getWriter().print(SSOUtils.buildHtmlMsg("单点异常[ex]", e.getMessage()));
         }
     }

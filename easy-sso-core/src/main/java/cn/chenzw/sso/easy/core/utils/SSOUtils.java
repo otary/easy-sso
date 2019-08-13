@@ -1,6 +1,6 @@
-package cn.chenzw.sso.easy.server.utils;
+package cn.chenzw.sso.easy.core.utils;
 
-import cn.chenzw.sso.easy.server.constants.SSOConstants;
+import cn.chenzw.sso.easy.core.constants.SSOConstants;
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.util.DigestUtils;
 

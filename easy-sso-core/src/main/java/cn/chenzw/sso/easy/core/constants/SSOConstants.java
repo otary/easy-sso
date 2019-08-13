@@ -1,17 +1,16 @@
-package cn.chenzw.sso.easy.server.constants;
+package cn.chenzw.sso.easy.core.constants;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
-
 /**
- * 配置
+ * 配置属性
  *
  * @author chenzw
  */
 @Configuration
-@PropertySource({"classpath:" + SSOConstants.CONFIG_FILE_NAME})
+@PropertySource(value = {"classpath:" + SSOConstants.CONFIG_FILE_NAME}, ignoreResourceNotFound = true)
 public class SSOConstants {
 
     public static final String CONFIG_FILE_NAME = "sso.properties";
@@ -20,32 +19,32 @@ public class SSOConstants {
 
     public static final String KEY_TIMESTAMP_FORMAT = "yyyyMMddHHmmss";
 
-    public static final String APP_BASE_PACKAGE = "cn.chenzw.sso.easy.server";
+    public static final String APP_BASE_PACKAGE = "com.ffcs.itm.sso.server";
 
     /**
      * SSO开放地址
      */
-    public static String ENTRANCE_URI;
+    public static String ENTRANCE_URI = "/itm-sso";
 
     /**
      * 来源系统-标识符
      */
-    public static String SOURCE_IDENTIFIER;
+    public static String SOURCE_IDENTIFIER = "source";
 
     /**
      * 一次性密钥-标识符
      */
-    public static String KEY_IDENTIFIER;
+    public static String KEY_IDENTIFIER = "key";
 
     /**
      * 用户帐号-标识符
      */
-    public static String USERNAME_IDENTIFIER;
+    public static String USERNAME_IDENTIFIER = "username";
 
     /**
      * 跳转url
      */
-    public static String REDIRECT_URL_IDENTIFIER;
+    public static String REDIRECT_URL_IDENTIFIER = "redirectUrl";
 
     /**
      * 密钥
@@ -55,49 +54,49 @@ public class SSOConstants {
     /**
      * 时效性（默认:30分钟）
      */
-    public static int LIMIT_MILLI_SECOND;
+    public static int LIMIT_MILLI_SECOND = 1800000;
 
     /**
      * 默认的跳转主页
      */
-    public static String DEFAULT_REDIRECT_URL;
+    public static String DEFAULT_REDIRECT_URL = "/";
 
-    @Value("${sso.entrance-uri}")
+    @Value("${sso.entrance-uri:/itm-sso}")
     public void setEntranceUri(String entranceUri) {
         ENTRANCE_URI = entranceUri;
     }
 
-    @Value("${sso.source-identifier}")
+    @Value("${sso.source-identifier:source}")
     public void setSourceIdentifier(String sourceIdentifier) {
         SOURCE_IDENTIFIER = sourceIdentifier;
     }
 
-    @Value("${sso.key-identifier}")
+    @Value("${sso.key-identifier:key}")
     public void setKeyIdentifier(String keyIdentifier) {
         KEY_IDENTIFIER = keyIdentifier;
     }
 
-    @Value("${sso.username-identifier}")
+    @Value("${sso.username-identifier:username}")
     public void setUsernameIdentifier(String usernameIdentifier) {
         USERNAME_IDENTIFIER = usernameIdentifier;
     }
 
-    @Value("${sso.redirect-url-identifier}")
+    @Value("${sso.redirect-url-identifier:redirectUrl}")
     public void setRedirectUrlIdentifier(String redirectUrlIdentifier) {
         REDIRECT_URL_IDENTIFIER = redirectUrlIdentifier;
     }
 
-    @Value("${sso.private-key}")
+    @Value("${sso.private-key:123456}")
     public void setPrivateKey(String privateKey) {
         PRIVATE_KEY = privateKey;
     }
 
-    @Value("${sso.limit-milli-second}")
+    @Value("${sso.limit-milli-second:1800000}")
     public void setLimitMilliSecond(int limitMilliSecond) {
         LIMIT_MILLI_SECOND = limitMilliSecond;
     }
 
-    @Value("${sso.default-redirect-url}")
+    @Value("${sso.default-redirect-url:/}")
     public void setDefaultRedirectUrl(String defaultRedirectUrl) {
         DEFAULT_REDIRECT_URL = defaultRedirectUrl;
     }

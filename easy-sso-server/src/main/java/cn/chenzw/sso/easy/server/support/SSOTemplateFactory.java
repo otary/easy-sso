@@ -1,8 +1,8 @@
 package cn.chenzw.sso.easy.server.support;
 
 
-import cn.chenzw.sso.easy.server.constants.SSOConstants;
-import cn.chenzw.sso.easy.server.exception.SSOException;
+import cn.chenzw.sso.easy.core.constants.SSOConstants;
+import cn.chenzw.sso.easy.core.exception.SSOException;
 import cn.chenzw.sso.easy.server.ext.SSO;
 import cn.chenzw.toolkit.http.HttpHolder;
 import org.apache.commons.lang3.ArrayUtils;
@@ -22,6 +22,8 @@ import java.util.Map;
  * @author chenzw
  */
 public final class SSOTemplateFactory {
+    private SSOTemplateFactory() {
+    }
 
     private static final Logger logger = LoggerFactory.getLogger(SSOTemplateFactory.class);
 
@@ -72,11 +74,7 @@ public final class SSOTemplateFactory {
             }
         }
 
-        AbstractSSOTemplate ssoTemplate = getTemplateBySource(source);
-        if (ssoTemplate == null) {
-            throw new SSOException("未找到对应的单点处理类");
-        }
-        return ssoTemplate;
+        return getTemplateBySource(source);
     }
 
     public static AbstractSSOTemplate autoGetTemplate() {
@@ -92,12 +90,20 @@ public final class SSOTemplateFactory {
     private static AbstractSSOTemplate getTemplateBySource(String source) {
         String beanName = ssoTemplates.get(source);
 
+        if (StringUtils.isEmpty(beanName)) {
+            throw new SSOException("未找到[" + source + "]对应的单点处理类");
+        }
+
         WebApplicationContext context = RequestContextUtils.findWebApplicationContext(HttpHolder.getRequest());
+        if (!context.containsBean(beanName)) {
+            throw new SSOException("未找到对应的单点处理类");
+        }
         Object bean = context.getBean(beanName);
         if (bean instanceof AbstractSSOTemplate) {
             logger.info("[{}] use sso template: [{}]!", source, bean);
             return (AbstractSSOTemplate) bean;
+        } else {
+            throw new SSOException("[" + beanName + "] not extends AbstractSSOTemplate");
         }
-        return null;
     }
 }

@@ -1,9 +1,9 @@
 package cn.chenzw.sso.easy.server.support;
 
 
-import cn.chenzw.sso.easy.server.constants.SSOConstants;
+import cn.chenzw.sso.easy.core.constants.SSOConstants;
+import cn.chenzw.sso.easy.core.exception.SSOException;
 import cn.chenzw.sso.easy.server.entity.SSODefinition;
-import cn.chenzw.sso.easy.server.exception.SSOException;
 import cn.chenzw.toolkit.codec.AESUtils;
 import cn.chenzw.toolkit.http.HttpHolder;
 import org.apache.commons.codec.DecoderException;
@@ -99,6 +99,7 @@ public abstract class AbstractSSOTemplate {
     /**
      * 数据校验
      *
+     * @param ssoDefinition
      * @return
      */
     protected boolean validate(SSODefinition ssoDefinition) {

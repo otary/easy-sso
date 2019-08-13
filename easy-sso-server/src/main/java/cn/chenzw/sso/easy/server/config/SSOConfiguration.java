@@ -1,6 +1,6 @@
 package cn.chenzw.sso.easy.server.config;
 
-import cn.chenzw.sso.easy.server.constants.SSOConstants;
+import cn.chenzw.sso.easy.core.constants.SSOConstants;
 import cn.chenzw.sso.easy.server.support.AbstractSSOTemplate;
 import cn.chenzw.sso.easy.server.support.SSOTemplateFactory;
 import org.springframework.beans.BeansException;

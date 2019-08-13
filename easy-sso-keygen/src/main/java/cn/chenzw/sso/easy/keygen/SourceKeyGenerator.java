@@ -22,7 +22,7 @@ public class SourceKeyGenerator {
                 throw new IllegalStateException("不能使用控制台");
             }
             while (StringUtils.isBlank(source) || StringUtils.isBlank(privateKey)) {
-                privateKey = console.readLine("请输入密码: ");
+                privateKey = console.readLine("请输入私钥: ");
                 source = console.readLine("请输入系统(source)标识符：");
             }
         }

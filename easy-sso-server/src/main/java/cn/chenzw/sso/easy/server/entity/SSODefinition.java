@@ -1,9 +1,9 @@
 package cn.chenzw.sso.easy.server.entity;
 
 
-import cn.chenzw.sso.easy.server.constants.SSOConstants;
-import cn.chenzw.sso.easy.server.exception.SSOException;
-import cn.chenzw.sso.easy.server.utils.SSOUtils;
+import cn.chenzw.sso.easy.core.constants.SSOConstants;
+import cn.chenzw.sso.easy.core.exception.SSOException;
+import cn.chenzw.sso.easy.core.utils.SSOUtils;
 import cn.chenzw.toolkit.codec.AESUtils;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.lang3.StringUtils;
@@ -57,11 +57,7 @@ public class SSODefinition {
             this.sourcePrivateKey = SSOUtils.getSourcePrivateKey(source);
 
             // 获取明文用户名
-            try {
-                this.plainUserName = new String(AESUtils.decryptHexString(userName, sourcePrivateKey), StandardCharsets.UTF_8);
-            } catch (NoSuchPaddingException | InvalidAlgorithmParameterException | NoSuchAlgorithmException | IllegalBlockSizeException | BadPaddingException | InvalidKeyException | DecoderException e) {
-                throw new SSOException("userName解析出错!");
-            }
+            this.plainUserName = getPlainName(userName, sourcePrivateKey);
 
             this.extraParams = new HashMap(request.getParameterMap());
 
@@ -72,6 +68,15 @@ public class SSODefinition {
             this.extraParams.remove(SSOConstants.SOURCE_IDENTIFIER);
         } catch (ServletRequestBindingException e) {
             throw new SSOException("参数初始化失败!");
+        }
+    }
+
+    private String getPlainName(String userName, String sourcePrivateKey) {
+        try {
+            return
+                    this.plainUserName = new String(AESUtils.decryptHexString(userName, sourcePrivateKey), StandardCharsets.UTF_8);
+        } catch (NoSuchPaddingException | InvalidAlgorithmParameterException | NoSuchAlgorithmException | IllegalBlockSizeException | BadPaddingException | InvalidKeyException | DecoderException e) {
+            throw new SSOException("userName解析出错!");
         }
     }
 
