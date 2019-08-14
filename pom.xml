@@ -4,7 +4,7 @@
     <groupId>cn.chenzw.sso</groupId>
     <artifactId>easy-sso</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <modules>
         <module>easy-sso-server</module>
         <module>easy-sso-examples</module>

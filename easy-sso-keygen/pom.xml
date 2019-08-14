@@ -5,7 +5,7 @@
     <parent>
         <artifactId>easy-sso</artifactId>
         <groupId>cn.chenzw.sso</groupId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>easy-sso-keygen</artifactId>
@@ -13,8 +13,8 @@
     <dependencies>
         <dependency>
             <groupId>cn.chenzw.sso</groupId>
-            <artifactId>easy-sso-server</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <artifactId>easy-sso-core</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 
@@ -36,7 +36,7 @@
                             <minimizeJar>true</minimizeJar>
                             <!-- 修改shade生成的jar包的后缀，默认是"-shaded" -->
                             <shadedArtifactAttached>true</shadedArtifactAttached>
-                            <shadedClassifierName>myshaded</shadedClassifierName>
+                            <shadedClassifierName>executable</shadedClassifierName>
                             <!-- 创建一个可执行jar包 -->
                             <transformers>
                                 <transformer
@@ -45,37 +45,6 @@
                                     <mainClass>cn.chenzw.sso.easy.keygen.SourceKeyGenerator</mainClass>
                                 </transformer>
                             </transformers>
-                            <!-- 依赖项 -->
-                           <!-- <artifactSet>
-                                <excludes>
-                                    <exclude>junit:junit</exclude>
-                                    <exclude>jmock:*</exclude>
-                                    <exclude>*:xml-apis</exclude>
-                                    <exclude>org.apache.maven:lib:tests</exclude>
-                                    <exclude>log4j:log4j:jar:</exclude>
-                                </excludes>
-                            </artifactSet>
-                            <filters>
-                                <filter>
-                                    <artifact>junit:junit</artifact>
-                                    <includes>
-                                        <include>junit/framework/**</include>
-                                        <include>org/junit/**</include>
-                                    </includes>
-                                    <excludes>
-                                        <exclude>org/junit/experimental/**</exclude>
-                                        <exclude>org/junit/runners/**</exclude>
-                                    </excludes>
-                                </filter>
-                                <filter>
-                                    <artifact>*:*</artifact>
-                                    <excludes>
-                                        <exclude>META-INF/*.SF</exclude>
-                                        <exclude>META-INF/*.DSA</exclude>
-                                        <exclude>META-INF/*.RSA</exclude>
-                                    </excludes>
-                                </filter>
-                            </filters>-->
                         </configuration>
                     </execution>
                 </executions>

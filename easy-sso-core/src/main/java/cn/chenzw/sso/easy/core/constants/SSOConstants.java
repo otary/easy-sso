@@ -21,10 +21,12 @@ public class SSOConstants {
 
     public static final String APP_BASE_PACKAGE = "com.ffcs.itm.sso.server";
 
+    public static final String DEFAULT_SSO_HANDLE_MAPPING = "/easy-sso";
+
     /**
      * SSO开放地址
      */
-    public static String ENTRANCE_URI = "/itm-sso";
+    public static String ENTRANCE_URI = DEFAULT_SSO_HANDLE_MAPPING;
 
     /**
      * 来源系统-标识符
@@ -61,7 +63,7 @@ public class SSOConstants {
      */
     public static String DEFAULT_REDIRECT_URL = "/";
 
-    @Value("${sso.entrance-uri:/itm-sso}")
+    @Value("${sso.entrance-uri:" + DEFAULT_SSO_HANDLE_MAPPING + "}")
     public void setEntranceUri(String entranceUri) {
         ENTRANCE_URI = entranceUri;
     }

@@ -1,5 +1,6 @@
 package cn.chenzw.sso.easy.server.controllers;
 
+import cn.chenzw.sso.easy.core.constants.SSOConstants;
 import cn.chenzw.sso.easy.core.exception.SSOException;
 import cn.chenzw.sso.easy.core.utils.SSOUtils;
 import cn.chenzw.sso.easy.server.support.AbstractSSOTemplate;
@@ -16,13 +17,12 @@ import java.io.IOException;
 
 
 @Controller
-@RequestMapping("/itm-sso")
+@RequestMapping(SSOConstants.DEFAULT_SSO_HANDLE_MAPPING)
 public class SSOController {
 
     private static final Logger logger = LoggerFactory.getLogger(SSOController.class);
 
     private static final String CONTENT_TYPE = "text/html;charset=UTF-8";
-
 
     @RequestMapping
     public void entrance(HttpServletRequest req, HttpServletResponse resp) throws IOException {
