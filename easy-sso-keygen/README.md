@@ -10,6 +10,6 @@ $ mvn package
 
 #### 运行
 
-$ java -jar easy-sso-keygen-1.0.0.jar
+$ java -jar easy-sso-keygen-1.0.0-executable.jar
 
 ![](../images/2.gif)

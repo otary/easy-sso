@@ -1,6 +1,6 @@
 package cn.chenzw.sso.easy.keygen;
 
-import cn.chenzw.sso.easy.server.utils.SSOUtils;
+import cn.chenzw.sso.easy.core.utils.SSOUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 
