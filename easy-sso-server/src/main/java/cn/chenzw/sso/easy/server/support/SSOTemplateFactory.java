@@ -19,6 +19,8 @@ import java.util.Map;
 
 
 /**
+ * SSO处理器工厂类
+ *
  * @author chenzw
  */
 public final class SSOTemplateFactory {

@@ -19,7 +19,7 @@ public class SSOConstants {
 
     public static final String KEY_TIMESTAMP_FORMAT = "yyyyMMddHHmmss";
 
-    public static final String APP_BASE_PACKAGE = "com.ffcs.itm.sso.server";
+    public static final String APP_BASE_PACKAGE = "cn.chenzw.sso.easy.server";
 
     public static final String DEFAULT_SSO_HANDLE_MAPPING = "/easy-sso";
 

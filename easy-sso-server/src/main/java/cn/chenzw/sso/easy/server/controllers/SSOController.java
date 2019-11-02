@@ -3,7 +3,6 @@ package cn.chenzw.sso.easy.server.controllers;
 import cn.chenzw.sso.easy.core.constants.SSOConstants;
 import cn.chenzw.sso.easy.core.exception.SSOException;
 import cn.chenzw.sso.easy.core.utils.SSOUtils;
-import cn.chenzw.sso.easy.server.support.AbstractSSOTemplate;
 import cn.chenzw.sso.easy.server.support.SSOTemplateFactory;
 import cn.chenzw.toolkit.http.HttpHolder;
 import org.slf4j.Logger;
@@ -30,8 +29,7 @@ public class SSOController {
         HttpHolder.init(req, resp);
 
         try {
-            AbstractSSOTemplate template = SSOTemplateFactory.autoGetTemplate();
-            template.dispach();
+            SSOTemplateFactory.autoGetTemplate().dispach();
         } catch (SSOException e) {
             logger.error("单点异常！", e);
             resp.getWriter().print(SSOUtils.buildHtmlMsg("单点异常", e.getMessage()));
