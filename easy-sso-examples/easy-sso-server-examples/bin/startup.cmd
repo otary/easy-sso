@@ -1,0 +1,1 @@
+mvn -f ../pom.xml tomcat7:run

@@ -15,7 +15,6 @@ public class DefaultSSOTemplate extends AbstractSSOTemplate {
 
     @Override
     protected void login(SSODefinition ssoDefinition) {
-
         System.out.println("-----------------登录！");
     }
 }
