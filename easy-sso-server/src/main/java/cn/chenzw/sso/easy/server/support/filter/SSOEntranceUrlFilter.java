@@ -19,13 +19,11 @@ public class SSOEntranceUrlFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
 
-        if (StringUtils.endsWith(request.getRequestURI(), SSOConstants.DEFAULT_SSO_HANDLE_MAPPING)) {
-            return;
-        }
-        if (StringUtils.endsWith(request.getRequestURI(), SSOConstants.ENTRANCE_URI)) {
-            request.getRequestDispatcher(SSOConstants.DEFAULT_SSO_HANDLE_MAPPING).forward(request, response);
+        if (StringUtils.endsWith(request.getRequestURI(), SSOConstants.DEFAULT_SSO_HANDLE_MAPPING)
+                || !StringUtils.endsWith(request.getRequestURI(), SSOConstants.ENTRANCE_URI)) {
+            filterChain.doFilter(request, response);
         }
 
-        filterChain.doFilter(request, response);
+        request.getRequestDispatcher(SSOConstants.DEFAULT_SSO_HANDLE_MAPPING).forward(request, response);
     }
 }

@@ -1,6 +1,7 @@
 package cn.chenzw.sso.easy.client.support;
 
 
+import cn.chenzw.sso.easy.client.support.builder.SSOMetaDataBuilder;
 import cn.chenzw.sso.easy.client.support.entity.SSOEntity;
 import cn.chenzw.sso.easy.core.constants.SSOConstants;
 import cn.chenzw.sso.easy.core.exception.SSOException;
@@ -41,13 +42,14 @@ public class SSOClient {
      * @throws UnsupportedEncodingException
      */
     public static String generateSSOUrl(String serverSSOUrl, String privateKey, String source, String userName,
-                                        String redirectUrl) {
+            String redirectUrl) {
         Map<String, String> paramMap = new HashMap<>();
         try {
             paramMap.put(SSOConstants.SOURCE_IDENTIFIER, source);
             paramMap.put(SSOConstants.USERNAME_IDENTIFIER, AESUtils.encryptAsHexString(userName, privateKey));
-            paramMap.put(SSOConstants.KEY_IDENTIFIER, AESUtils.encryptAsHexString(userName + SSOConstants.KEY_SEPARATOR
-                    + DateFormatUtils.format(new Date(), SSOConstants.KEY_TIMESTAMP_FORMAT), privateKey));
+            paramMap.put(SSOConstants.KEY_IDENTIFIER, AESUtils.encryptAsHexString(
+                    userName + SSOConstants.KEY_SEPARATOR + DateFormatUtils
+                            .format(new Date(), SSOConstants.KEY_TIMESTAMP_FORMAT), privateKey));
             paramMap.put(SSOConstants.REDIRECT_URL_IDENTIFIER,
                     URLEncoder.encode(redirectUrl, StandardCharsets.UTF_8.name()));
         } catch (UnsupportedEncodingException | NoSuchPaddingException | InvalidAlgorithmParameterException | NoSuchAlgorithmException | IllegalBlockSizeException | BadPaddingException | InvalidKeyException e) {
@@ -59,6 +61,28 @@ public class SSOClient {
     public static String generateSSOUrl(SSOEntity ssoEntity) {
         return generateSSOUrl(ssoEntity.getServerSSOUrl(), ssoEntity.getPrivateKey(), ssoEntity.getSource(),
                 ssoEntity.getUserName(), ssoEntity.getRedirectUrl());
+    }
+
+    public static String generateSSOUrl(String serverSSOUrl, String privateKey, String source, String userName,
+            String redirectUrl, SSOMetaDataBuilder ssoMetaDataBuilder) {
+        if (ssoMetaDataBuilder == null) {
+            return null;
+        }
+
+        SSOMetaDataBuilder.SSOMetaData ssoMetaData = ssoMetaDataBuilder.build();
+        Map<String, String> paramMap = new HashMap<>();
+        try {
+            paramMap.put(ssoMetaData.getSourceIdentifier(), source);
+            paramMap.put(ssoMetaData.getUsernameIdentifier(), AESUtils.encryptAsHexString(userName, privateKey));
+            paramMap.put(ssoMetaData.getKeyIdentifier(), AESUtils.encryptAsHexString(
+                    userName + SSOConstants.KEY_SEPARATOR + DateFormatUtils
+                            .format(new Date(), SSOConstants.KEY_TIMESTAMP_FORMAT), privateKey));
+            paramMap.put(ssoMetaData.getRedirectUrlIdentifier(),
+                    URLEncoder.encode(redirectUrl, StandardCharsets.UTF_8.name()));
+        } catch (UnsupportedEncodingException | NoSuchPaddingException | InvalidAlgorithmParameterException | NoSuchAlgorithmException | IllegalBlockSizeException | BadPaddingException | InvalidKeyException e) {
+            throw new SSOException(e.getMessage());
+        }
+        return UriExtUtils.buildParams(serverSSOUrl, paramMap);
     }
 
     /**
@@ -84,7 +108,8 @@ public class SSOClient {
      */
     public static String getEncrypedKey(String userName, String privateKey) {
         try {
-            return AESUtils.encryptAsHexString(userName + SSOConstants.KEY_SEPARATOR + DateFormatUtils.format(new Date(), SSOConstants.KEY_TIMESTAMP_FORMAT), privateKey);
+            return AESUtils.encryptAsHexString(userName + SSOConstants.KEY_SEPARATOR + DateFormatUtils
+                    .format(new Date(), SSOConstants.KEY_TIMESTAMP_FORMAT), privateKey);
         } catch (NoSuchPaddingException | InvalidKeyException | NoSuchAlgorithmException | IllegalBlockSizeException | BadPaddingException | InvalidAlgorithmParameterException e) {
             throw new SSOException(e.getMessage());
         }
