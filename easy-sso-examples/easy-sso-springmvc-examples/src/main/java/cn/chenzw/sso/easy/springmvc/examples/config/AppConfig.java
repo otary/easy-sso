@@ -1,4 +1,4 @@
-package cn.chenzw.sso.easy.server.examples.config;
+package cn.chenzw.sso.easy.springmvc.examples.config;
 
 import org.springframework.context.annotation.Configuration;
 

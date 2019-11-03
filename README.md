@@ -12,6 +12,10 @@
 
 - [easy-sso-core](easy-sso-core): sso核心代码
 - [easy-sso-server](easy-sso-server): sso服务端
+  - [使用教程](./easy-sso-server/README.md) 
 - [easy-sso-client](easy-sso-client): sso客户端
+  - [使用教程](./easy-sso-client/README.md) 
 - [easy-sso-keygen](easy-sso-keygen): sso密钥生成器
+  - [使用教程](./easy-sso-keygen/README.md)
 - [easy-sso-examples](easy-sso-examples): sso示例
+  - [easy-sso-server-example](./easy-sso-examples/easy-sso-server-examples): 服务端集成示例

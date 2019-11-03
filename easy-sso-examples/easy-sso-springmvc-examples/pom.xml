@@ -9,16 +9,45 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>easy-sso-server-examples</artifactId>
+    <artifactId>easy-sso-springmvc-examples</artifactId>
     <packaging>war</packaging>
+
+    <properties>
+        <springframework.version>4.3.15.RELEASE</springframework.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-framework-bom</artifactId>
+                <version>${springframework.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
 
     <dependencies>
         <dependency>
             <groupId>cn.chenzw.sso</groupId>
             <artifactId>easy-sso-server</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>1.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.chenzw.sso</groupId>
+            <artifactId>easy-sso-client</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
         </dependency>
     </dependencies>
+
 
     <build>
         <plugins>

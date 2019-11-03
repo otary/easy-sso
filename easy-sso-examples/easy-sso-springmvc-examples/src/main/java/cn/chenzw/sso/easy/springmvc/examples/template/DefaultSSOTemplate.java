@@ -1,4 +1,4 @@
-package cn.chenzw.sso.easy.server.examples.template;
+package cn.chenzw.sso.easy.springmvc.examples.template;
 
 import cn.chenzw.sso.easy.server.entity.SSODefinition;
 import cn.chenzw.sso.easy.server.ext.SSO;

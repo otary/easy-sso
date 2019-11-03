@@ -1,7 +1,7 @@
-package cn.chenzw.sso.easy.server.examples.initializer;
+package cn.chenzw.sso.easy.springmvc.examples.initializer;
 
-import cn.chenzw.sso.easy.server.examples.config.AppConfig;
-import cn.chenzw.sso.easy.server.examples.config.WebConfig;
+import cn.chenzw.sso.easy.springmvc.examples.config.AppConfig;
+import cn.chenzw.sso.easy.springmvc.examples.config.WebConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class WebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {

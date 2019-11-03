@@ -2,6 +2,7 @@ package cn.chenzw.sso.easy.server.support.filter;
 
 import cn.chenzw.sso.easy.core.constants.SSOConstants;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
@@ -13,6 +14,7 @@ import java.io.IOException;
 /**
  * @author chenzw
  */
+@Component
 public class SSOEntranceUrlFilter extends OncePerRequestFilter {
 
     @Override
