@@ -9,7 +9,7 @@ sso服务端
  
 - maven 方式
  
- ```
+ ``` xml
 <dependency>
     <groupId>cn.chenzw.sso</groupId>
     <artifactId>easy-sso-server</artifactId>
@@ -19,7 +19,7 @@ sso服务端
 
 - gradle 方式
 
-```
+``` 
 compile group: 'cn.chenzw.sso', name: 'easy-sso-server', version: '1.0.0'
 
 ```
@@ -28,7 +28,7 @@ compile group: 'cn.chenzw.sso', name: 'easy-sso-server', version: '1.0.0'
 
 - 使用`@EnableSSO`开启SSO服务
 
-```
+``` java
 @EnableSSO
 @Configuration
 public class SSOConfig {
@@ -44,7 +44,8 @@ public class SSOConfig {
   -  source属性：指定此类处理哪些系统（*号表示处理所有系统的单点请求，也就是默认单点处理器，有且仅能有一个默认单点处理类）
 
 示例：
-```
+
+``` java
 @Component
 @SSO(source = "*")
 public class DefaultSSOTemplate extends AbstractSSOTemplate {
@@ -82,7 +83,7 @@ public class DefaultSSOTemplate extends AbstractSSOTemplate {
 
 - 可在项目`resources`下新建`sso.properties` 或 直接在`application.properties`中添加单点配置参数
 
-```
+``` properties
 ## 指定单点服务端私钥(必须)
 sso.private-key=123456
 
@@ -108,7 +109,7 @@ sso.default-redirect-url=/
 
 配置修改如下：
 
-```
+``` properties
 sso.entrance-uri=/my-sso
 sso.source-identifier=source2
 sso.key-identifier=key2

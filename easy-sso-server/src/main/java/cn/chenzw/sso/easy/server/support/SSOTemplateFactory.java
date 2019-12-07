@@ -24,12 +24,13 @@ import java.util.Map;
  * @author chenzw
  */
 public final class SSOTemplateFactory {
-    private SSOTemplateFactory() {
-    }
 
     private static final Logger logger = LoggerFactory.getLogger(SSOTemplateFactory.class);
 
     private static Map<String, String> ssoTemplates = new HashMap<String, String>();
+
+    private SSOTemplateFactory() {
+    }
 
     public static void register(String source, String beanName) {
         if (ssoTemplates.containsKey(source)) {

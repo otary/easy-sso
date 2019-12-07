@@ -27,6 +27,33 @@ import java.util.Map;
  */
 public class SSODefinition {
 
+
+    private HttpServletRequest request;
+
+    private HttpServletResponse response;
+
+    private String source;
+
+    private String userName;
+
+    private String key;
+
+    /**
+     * 明文
+     */
+    private String plainUserName;
+
+    /**
+     * 系统密钥
+     *
+     * @Description 通过source与应用密钥进行MD5加密后获得
+     */
+    private String sourcePrivateKey;
+
+    private String redirectUrl;
+
+    private Map extraParams;
+
     public SSODefinition(HttpServletRequest request, HttpServletResponse response) {
         this.request = request;
         this.response = response;
@@ -80,31 +107,7 @@ public class SSODefinition {
         }
     }
 
-    private HttpServletRequest request;
 
-    private HttpServletResponse response;
-
-    private String source;
-
-    private String userName;
-
-    private String key;
-
-    /**
-     * 明文
-     */
-    private String plainUserName;
-
-    /**
-     * 系统密钥
-     *
-     * @Description 通过source与应用密钥进行MD5加密后获得
-     */
-    private String sourcePrivateKey;
-
-    private String redirectUrl;
-
-    private Map extraParams;
 
     public HttpServletRequest getRequest() {
         return request;

@@ -8,7 +8,7 @@ sso客户端，用于快速生成单点链接
 
 - **maven方式**
  
- ```
+ ``` xml
 <dependency>
     <groupId>cn.chenzw.sso</groupId>
     <artifactId>easy-sso-client</artifactId>
@@ -26,7 +26,7 @@ compile group: 'cn.chenzw.sso', name: 'easy-sso-client', version: '1.0.0'
 
 ### 调用方法
 
-```
+``` java
 /**
   * 生成SSO单点链接
   * @param serverSSOUrl 参数1：单点认证地址
