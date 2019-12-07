@@ -11,6 +11,10 @@
 [![Build Status](https://travis-ci.org/otary/easy-sso.svg?branch=master)](https://travis-ci.org/otary/easy-sso)
 
 
+## 文档
+
+[中文文档](https://otary.github.io/easy-sso/)
+
 ## 模块
 
 - [easy-sso-core](easy-sso-core): sso核心代码

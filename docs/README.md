@@ -11,6 +11,10 @@
 [![Build Status](https://travis-ci.org/otary/easy-sso.svg?branch=master)](https://travis-ci.org/otary/easy-sso)
 
 
+## 文档
+
+[中文文档](https://otary.github.io/easy-sso/)
+
 ## 模块
 
 - [easy-sso-core](easy-sso-core): sso核心代码
@@ -22,3 +26,8 @@
   - [使用教程](./easy-sso-keygen/README.md)
 - [easy-sso-examples](easy-sso-examples): sso示例
   - [easy-sso-server-example](./easy-sso-examples/easy-sso-server-examples): 服务端集成示例
+  
+  
+[](zh-cn/easy-sso-server/README.md ':include')
+[](zh-cn/easy-sso-client/README.md ':include')
+[](zh-cn/easy-sso-keygen/README.md ':include')
