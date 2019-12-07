@@ -8,7 +8,7 @@
 ![](https://img.shields.io/badge/commons--codec-1.12-brightgreen)
 ![](https://img.shields.io/badge/toolkit-1.0.1-brightgreen)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/52e5d33a96cb4ee49c291df91f895bd5)](https://www.codacy.com/manual/otary/easy-sso?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=otary/easy-sso&amp;utm_campaign=Badge_Grade)
-[![Build Status](https://travis-ci.org/otary/easy-sso.svg?branch=master)](https://travis-ci.org/otary/easy-sso)
+
 
 
 ## 模块
