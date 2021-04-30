@@ -13,7 +13,7 @@
     <packaging>war</packaging>
 
     <properties>
-        <springframework.version>4.3.15.RELEASE</springframework.version>
+        <springframework.version>4.3.29.RELEASE</springframework.version>
     </properties>
 
     <dependencyManagement>
